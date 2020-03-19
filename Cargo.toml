@@ -1,0 +1,25 @@
+[package]
+name = "nxtik"
+version = "1.0.0"
+authors = ["jam1garner <jam1.mcleod@hotmail.com>"]
+edition = "2018"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "nxtik"
+path = "src/main.rs"
+required-features = ["cli"]
+
+[features]
+default = ["cli"]
+cli = ["structopt"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+binread = { git = "https://github.com/jam1garner/binread" }
+structopt = { version = "0.3.12", optional = true }
+prettytable-rs = "0.8.0"
+
