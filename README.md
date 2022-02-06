@@ -24,7 +24,7 @@ ARGS:
 Proper install (requires Rust to be installed, supports all Operating Systems):
 
 ```
-cargo install --git https://github.com/jam1garner/nxtik
+cargo install --git https://github.com/jam1garner/nxtik --locked
 ```
 
 Rust-less install (Windows and Linux only):
