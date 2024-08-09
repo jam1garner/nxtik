@@ -1,4 +1,4 @@
-use prettytable::{table, row, cell, format::{FormatBuilder, LinePosition, LineSeparator}};
+use prettytable::{table, format::{FormatBuilder, LineSeparator}};
 use nxtik::{TikFile, prelude::*};
 use structopt::StructOpt;
 use std::{fs::File, path::PathBuf};
