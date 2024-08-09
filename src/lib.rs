@@ -3,7 +3,7 @@ use core::fmt;
 
 extern crate alloc;
 
-use alloc::{vec, vec::Vec, string::String};
+use alloc::{vec::Vec, string::String};
 
 pub mod prelude {
     pub use super::BinRead;
@@ -18,8 +18,8 @@ use binread::NullString;
 pub struct TikFile {
     pub sig_type: SignatureType,
     
-    #[br(pad_after("sig_type.padding()"))]
-    #[br(count("sig_type.size()"))]
+    #[br(pad_after(sig_type.padding() as _))]
+    #[br(count(sig_type.size()))]
     pub signature: Vec<u8>,
 
     pub ticket_data: TicketData,
@@ -30,7 +30,7 @@ pub struct TikFile {
 #[derive(BinRead, Debug, Clone)]
 #[br(little)]
 pub struct TicketData {
-    #[br(map("|s: NullString| s.into_string()"))]
+    #[br(map(|s: NullString| s.into_string()))]
     #[br(pad_size_to(0x40))]
     pub issuer: String,
 
